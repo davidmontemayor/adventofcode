@@ -36,21 +36,11 @@ function part2() {
   for (var i = 0; i <= depthReadings.length - 4; i++) {
     const window1 = depthReadings.slice(i, i + 3);
     const window2 = depthReadings.slice(i + 1, i + 4);
-    console.log(window1, arraySum(window1))
-    console.log(window2, arraySum(window2))
+    // console.log(window1, arraySum(window1))
+    // console.log(window2, arraySum(window2))
     const increase = arraySum(window2) > arraySum(window1) ? 1 : 0;
     increases+= increase;
   }
   console.log(increases)
-  // let window1 = [];
-  // let window2 = [];
-  // let increases = 0;
-  // depthReadings.forEach(valueStr => {
-  //   const value = parseInt(valueStr);
-  //   let increase = value > previous ? 1 : 0;
-  //   increases+= increase;
-  //   previous = value;
-  // })
-  // console.log(increases)
 }
 part2();
