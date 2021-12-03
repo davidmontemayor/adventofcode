@@ -53,7 +53,7 @@ function part1() {
 
 function part1Better() {
   const data = readInput('input.txt');
-  
+
   var gamma = '';
   var epsilon = '';
   for (var i = 0; i < data[0].length; i ++) {
@@ -67,22 +67,19 @@ function part1Better() {
   console.log(parseInt(gamma,2) * parseInt(epsilon,2))
 }
 
-function part2a() {
+function part2a1(mostCommon) {
   const data = readInput('input.txt');
   var filtered = data;
-  for (var i = 0; i < 12; i++) {
-    var ones = 0;
-    var zeroes = 0;
-    filtered.forEach(binaryNumber => {
-      if (binaryNumber[i] == '1') {
-        ones++;
-      } else {
-        zeroes++;
-      }
-    });
-
-    const filterCharacter = ones >= zeroes ? 1 : 0;
-    console.log(ones, zeroes, filterCharacter)
+  for (var i = 0; i < data[0].length; i++) {
+    const zeroCount = filtered.map((string) => string[i]).filter(x => x == '0').length;
+    
+    // scrubber - we want least common
+    // oxygen - we want most common
+    if (mostCommon) {
+      var filterCharacter = zeroCount > filtered.length /2 ? 0 : 1;
+    } else {
+      var filterCharacter = zeroCount <= filtered.length /2 ? 0 : 1;
+    }
     filtered = filtered.filter(number => {
       return number[i] == filterCharacter;
     });
@@ -90,41 +87,16 @@ function part2a() {
     if (filtered.length == 1) {
       return filtered[0];
     }
-    console.log('');
-  }
-}
-
-function part2b() {
-  const data = readInput('input.txt');
-  var filtered = data;
-  for (var i = 0; i < 12; i++) {
-    var ones = 0;
-    var zeroes = 0;
-    filtered.forEach(binaryNumber => {
-      if (binaryNumber[i] == '1') {
-        ones++;
-      } else {
-        zeroes++;
-      }
-    });
-
-    const filterCharacter = ones < zeroes ? 1 : 0;
-    console.log(ones, zeroes, filterCharacter)
-    filtered = filtered.filter(number => {
-      return number[i] == filterCharacter;
-    });
-    console.log(filtered);
-    if (filtered.length == 1) {
-      return filtered[0];
-    }
-    console.log('');
   }
 }
 
 
-part1();
-part1Better();
-// const oxygen = part2a();
-// const scrubber = part2b();
-// console.log(oxygen, scrubber);
-// console.log(parseInt(oxygen,2) * parseInt(scrubber,2));
+// part1();
+// part1Better();
+
+const oxygen = part2a1(true);
+const scrubber = part2a1(false);
+//Expected: 111100011111 001001100101
+
+console.log(oxygen, scrubber);
+console.log(parseInt(oxygen,2) * parseInt(scrubber,2));
