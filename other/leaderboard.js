@@ -11,13 +11,9 @@ function readInput(filename) {
 function process() {
   const data = readInput('leaderboard.json');
   // Show who did what in order
-  // console.log(Object.keys(data.members))
   var daysData = {};
-  // console.log(what)
   Object.keys(data.members).forEach(key => {
-    // console.log(daysData)
     const user = data.members[key];
-    // console.log(user.name)
     Object.keys(user.completion_day_level).forEach(day => {
       const dayInt = parseInt(day);
       if (!daysData[dayInt]) {
@@ -25,7 +21,6 @@ function process() {
       }
       const dayData = user.completion_day_level[day];
       if (dayData['1']) {
-        // console.log(dayData['1'].get_star_ts)
         daysData[dayInt].push({
           name: user.name,
           star: 1,
@@ -33,7 +28,6 @@ function process() {
         })
       }
       if (dayData['2']) {
-        // console.log(dayData['2'].get_star_ts)
         daysData[dayInt].push({
           name: user.name,
           star: 2,
@@ -43,17 +37,27 @@ function process() {
     });
   });
   // console.log(data);
+
+  const userPoints = {};
   Object.keys(daysData).forEach(day => {
     daysData[day].sort((a,b) => a.timestamp - b.timestamp)
-    console.log ("DAY " + day)
+    console.log ("December " + day + ", 2021\n");
+    var points1Left = 9; //TODO: automate
+    var points2Left = 9;
     daysData[day].forEach(entry => {
-      console.log(entry.name, entry.star, '\t', betterDate(new Date(entry.timestamp*1000)))
+      const worth = entry.star == 1 ? points1Left -- : points2Left--;
+      userPoints[entry.name] = (userPoints[entry.name] || 0) + worth;
+      console.log(formatName(entry.name), entry.star, '\t', betterDate(new Date(entry.timestamp*1000)), 'Received: ', worth, 'Total: ', userPoints[entry.name]);
     })
-    console.log ("====================================")
+    console.log ("=========================================================================")
+    console.log('')
   })
-  daysData['1'].sort((a,b) => a.timestamp - b.timestamp)
-  // console.log(JSON.stringify(daysData['1']))
-  // console.log(JSON.stringify(daysData));
+  console.log('TOTALS')
+  console.log('------')
+  const totals = [];
+  Object.keys(userPoints).forEach(user => totals.push( { user, points: userPoints[user] }));
+  const sorted = totals.slice(0).sort((a,b) => b.points - a.points)
+  sorted.forEach(x => console.log(formatName(x.user), x.points));
 }
 
 betterDate = (date) => {
@@ -62,8 +66,19 @@ betterDate = (date) => {
     .slice(3);
   return dateStr;
 }
+
+// Ascending
 sortNumArray = (array) => {
   return array.slice(0).sort((a,b) => a-b);
 };
 
+formatName = (nameInput) => {
+  const name = nameInput || 'Sean V. Probs';
+  const pad = 20 - name.length;
+  const nameArray = Array.from(name);
+  nameArray.push(...new Array(pad).fill(' '));
+  return nameArray.join('');
+}
+
+// TODO: track points per day and print out a progression
 process();

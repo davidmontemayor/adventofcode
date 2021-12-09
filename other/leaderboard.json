@@ -1,185 +1,8 @@
 {
-  "event": "2021",
   "owner_id": "492809",
   "members": {
-    "708106": {
-      "local_score": 88,
-      "stars": 10,
-      "id": "708106",
-      "global_score": 0,
-      "completion_day_level": {
-        "2": {
-          "2": {
-            "get_star_ts": 1638421543
-          },
-          "1": {
-            "get_star_ts": 1638421449
-          }
-        },
-        "3": {
-          "1": {
-            "get_star_ts": 1638507956
-          },
-          "2": {
-            "get_star_ts": 1638508611
-          }
-        },
-        "1": {
-          "2": {
-            "get_star_ts": 1638335374
-          },
-          "1": {
-            "get_star_ts": 1638335103
-          }
-        },
-        "5": {
-          "2": {
-            "get_star_ts": 1638682250
-          },
-          "1": {
-            "get_star_ts": 1638681739
-          }
-        },
-        "4": {
-          "2": {
-            "get_star_ts": 1638601217
-          },
-          "1": {
-            "get_star_ts": 1638601036
-          }
-        }
-      },
-      "last_star_ts": 1638682250,
-      "name": "Steve L"
-    },
-    "1044905": {
-      "stars": 10,
-      "id": "1044905",
-      "local_score": 82,
-      "global_score": 0,
-      "completion_day_level": {
-        "2": {
-          "2": {
-            "get_star_ts": 1638449762
-          },
-          "1": {
-            "get_star_ts": 1638445046
-          }
-        },
-        "1": {
-          "2": {
-            "get_star_ts": 1638367928
-          },
-          "1": {
-            "get_star_ts": 1638366911
-          }
-        },
-        "4": {
-          "1": {
-            "get_star_ts": 1638600383
-          },
-          "2": {
-            "get_star_ts": 1638600860
-          }
-        },
-        "5": {
-          "2": {
-            "get_star_ts": 1638683167
-          },
-          "1": {
-            "get_star_ts": 1638682815
-          }
-        },
-        "3": {
-          "2": {
-            "get_star_ts": 1638509277
-          },
-          "1": {
-            "get_star_ts": 1638508186
-          }
-        }
-      },
-      "name": "David Montemayor",
-      "last_star_ts": 1638683167
-    },
-    "1056653": {
-      "id": "1056653",
-      "stars": 8,
-      "local_score": 46,
-      "completion_day_level": {
-        "2": {
-          "2": {
-            "get_star_ts": 1638497102
-          },
-          "1": {
-            "get_star_ts": 1638496697
-          }
-        },
-        "4": {
-          "1": {
-            "get_star_ts": 1638636648
-          },
-          "2": {
-            "get_star_ts": 1638642821
-          }
-        },
-        "1": {
-          "2": {
-            "get_star_ts": 1638493611
-          },
-          "1": {
-            "get_star_ts": 1638488244
-          }
-        },
-        "3": {
-          "1": {
-            "get_star_ts": 1638537655
-          },
-          "2": {
-            "get_star_ts": 1638564075
-          }
-        }
-      },
-      "name": "Thomas Aylesworth",
-      "last_star_ts": 1638642821,
-      "global_score": 0
-    },
-    "1047722": {
-      "name": "Matt Hilliard",
-      "completion_day_level": {
-        "3": {
-          "1": {
-            "get_star_ts": 1638557835
-          },
-          "2": {
-            "get_star_ts": 1638564571
-          }
-        },
-        "1": {
-          "2": {
-            "get_star_ts": 1638377761
-          },
-          "1": {
-            "get_star_ts": 1638370438
-          }
-        },
-        "2": {
-          "1": {
-            "get_star_ts": 1638482129
-          },
-          "2": {
-            "get_star_ts": 1638482846
-          }
-        }
-      },
-      "last_star_ts": 1638564571,
-      "global_score": 0,
-      "id": "1047722",
-      "stars": 6,
-      "local_score": 39
-    },
     "1644090": {
-      "global_score": 0,
+      "local_score": 6,
       "completion_day_level": {
         "1": {
           "1": {
@@ -187,16 +10,18 @@
           }
         }
       },
-      "last_star_ts": 1638376041,
+      "global_score": 0,
       "name": null,
-      "stars": 1,
+      "last_star_ts": 1638376041,
       "id": "1644090",
-      "local_score": 6
+      "stars": 1
     },
     "1731522": {
-      "local_score": 19,
+      "name": "Alex LaDue",
+      "last_star_ts": 1638543910,
       "id": "1731522",
       "stars": 4,
+      "local_score": 19,
       "completion_day_level": {
         "2": {
           "2": {
@@ -207,44 +32,113 @@
           }
         },
         "1": {
-          "1": {
-            "get_star_ts": 1638457703
-          },
           "2": {
             "get_star_ts": 1638482876
+          },
+          "1": {
+            "get_star_ts": 1638457703
           }
         }
       },
-      "last_star_ts": 1638543910,
-      "name": "Alex LaDue",
       "global_score": 0
     },
+    "1648995": {
+      "stars": 15,
+      "name": "Lauren Meinhart",
+      "last_star_ts": 1638952383,
+      "id": "1648995",
+      "global_score": 0,
+      "local_score": 83,
+      "completion_day_level": {
+        "5": {
+          "2": {
+            "get_star_ts": 1638709505
+          },
+          "1": {
+            "get_star_ts": 1638707093
+          }
+        },
+        "6": {
+          "2": {
+            "get_star_ts": 1638792891
+          },
+          "1": {
+            "get_star_ts": 1638784874
+          }
+        },
+        "8": {
+          "1": {
+            "get_star_ts": 1638952383
+          }
+        },
+        "4": {
+          "2": {
+            "get_star_ts": 1638622930
+          },
+          "1": {
+            "get_star_ts": 1638622394
+          }
+        },
+        "2": {
+          "2": {
+            "get_star_ts": 1638633429
+          },
+          "1": {
+            "get_star_ts": 1638633219
+          }
+        },
+        "3": {
+          "2": {
+            "get_star_ts": 1638631773
+          },
+          "1": {
+            "get_star_ts": 1638567509
+          }
+        },
+        "1": {
+          "2": {
+            "get_star_ts": 1638564936
+          },
+          "1": {
+            "get_star_ts": 1638563761
+          }
+        },
+        "7": {
+          "2": {
+            "get_star_ts": 1638870227
+          },
+          "1": {
+            "get_star_ts": 1638869880
+          }
+        }
+      }
+    },
     "1731173": {
+      "stars": 0,
       "last_star_ts": "0",
-      "completion_day_level": {},
+      "id": "1731173",
       "name": "Patrick Lawe",
       "global_score": 0,
-      "id": "1731173",
-      "stars": 0,
+      "completion_day_level": {},
       "local_score": 0
     },
     "492809": {
       "global_score": 0,
       "completion_day_level": {
+        "3": {
+          "2": {
+            "get_star_ts": 1638635388
+          },
+          "1": {
+            "get_star_ts": 1638514641
+          }
+        },
         "1": {
           "1": {
             "get_star_ts": 1638509642
           },
           "2": {
             "get_star_ts": 1638509958
-          }
-        },
-        "3": {
-          "1": {
-            "get_star_ts": 1638514641
-          },
-          "2": {
-            "get_star_ts": 1638635388
           }
         },
         "2": {
@@ -256,53 +150,337 @@
           }
         }
       },
-      "name": "Matthew Kornfield",
-      "last_star_ts": 1638635388,
       "local_score": 28,
       "stars": 6,
-      "id": "492809"
+      "id": "492809",
+      "last_star_ts": 1638635388,
+      "name": "Matthew Kornfield"
     },
-    "1648995": {
+    "1044905": {
       "global_score": 0,
       "completion_day_level": {
-        "1": {
-          "1": {
-            "get_star_ts": 1638563761
-          },
+        "2": {
           "2": {
-            "get_star_ts": 1638564936
+            "get_star_ts": 1638449762
+          },
+          "1": {
+            "get_star_ts": 1638445046
           }
         },
         "4": {
+          "1": {
+            "get_star_ts": 1638600383
+          },
           "2": {
-            "get_star_ts": 1638622930
+            "get_star_ts": 1638600860
+          }
+        },
+        "8": {
+          "1": {
+            "get_star_ts": 1638940531
+          },
+          "2": {
+            "get_star_ts": 1638944138
+          }
+        },
+        "5": {
+          "1": {
+            "get_star_ts": 1638682815
+          },
+          "2": {
+            "get_star_ts": 1638683167
+          }
+        },
+        "6": {
+          "1": {
+            "get_star_ts": 1638767184
+          },
+          "2": {
+            "get_star_ts": 1638767947
+          }
+        },
+        "9": {
+          "2": {
+            "get_star_ts": 1639062501
           },
           "1": {
-            "get_star_ts": 1638622394
+            "get_star_ts": 1639058871
           }
         },
         "3": {
           "1": {
-            "get_star_ts": 1638567509
+            "get_star_ts": 1638508186
           },
           "2": {
-            "get_star_ts": 1638631773
+            "get_star_ts": 1638509277
+          }
+        },
+        "7": {
+          "1": {
+            "get_star_ts": 1638853732
+          },
+          "2": {
+            "get_star_ts": 1638854304
+          }
+        },
+        "1": {
+          "2": {
+            "get_star_ts": 1638367928
+          },
+          "1": {
+            "get_star_ts": 1638366911
+          }
+        }
+      },
+      "local_score": 145,
+      "stars": 18,
+      "last_star_ts": 1639062501,
+      "id": "1044905",
+      "name": "David Montemayor"
+    },
+    "708106": {
+      "local_score": 159,
+      "completion_day_level": {
+        "8": {
+          "1": {
+            "get_star_ts": 1638940146
+          },
+          "2": {
+            "get_star_ts": 1638942666
+          }
+        },
+        "6": {
+          "2": {
+            "get_star_ts": 1638767727
+          },
+          "1": {
+            "get_star_ts": 1638767350
+          }
+        },
+        "5": {
+          "2": {
+            "get_star_ts": 1638682250
+          },
+          "1": {
+            "get_star_ts": 1638681739
+          }
+        },
+        "2": {
+          "1": {
+            "get_star_ts": 1638421449
+          },
+          "2": {
+            "get_star_ts": 1638421543
+          }
+        },
+        "4": {
+          "2": {
+            "get_star_ts": 1638601217
+          },
+          "1": {
+            "get_star_ts": 1638601036
+          }
+        },
+        "1": {
+          "2": {
+            "get_star_ts": 1638335374
+          },
+          "1": {
+            "get_star_ts": 1638335103
+          }
+        },
+        "3": {
+          "1": {
+            "get_star_ts": 1638507956
+          },
+          "2": {
+            "get_star_ts": 1638508611
+          }
+        },
+        "7": {
+          "1": {
+            "get_star_ts": 1638853517
+          },
+          "2": {
+            "get_star_ts": 1638853778
+          }
+        },
+        "9": {
+          "1": {
+            "get_star_ts": 1639026561
+          },
+          "2": {
+            "get_star_ts": 1639027688
+          }
+        }
+      },
+      "global_score": 0,
+      "name": "Steve L",
+      "id": "708106",
+      "last_star_ts": 1639027688,
+      "stars": 18
+    },
+    "1047722": {
+      "last_star_ts": 1639059352,
+      "id": "1047722",
+      "name": "Matt Hilliard",
+      "stars": 17,
+      "completion_day_level": {
+        "5": {
+          "2": {
+            "get_star_ts": 1638919015
+          },
+          "1": {
+            "get_star_ts": 1638836215
+          }
+        },
+        "6": {
+          "2": {
+            "get_star_ts": 1638976977
+          },
+          "1": {
+            "get_star_ts": 1638920198
+          }
+        },
+        "8": {
+          "1": {
+            "get_star_ts": 1638982939
+          },
+          "2": {
+            "get_star_ts": 1638993857
+          }
+        },
+        "4": {
+          "1": {
+            "get_star_ts": 1638828698
+          },
+          "2": {
+            "get_star_ts": 1638829077
           }
         },
         "2": {
           "2": {
-            "get_star_ts": 1638633429
+            "get_star_ts": 1638482846
           },
           "1": {
-            "get_star_ts": 1638633219
+            "get_star_ts": 1638482129
+          }
+        },
+        "1": {
+          "1": {
+            "get_star_ts": 1638370438
+          },
+          "2": {
+            "get_star_ts": 1638377761
+          }
+        },
+        "3": {
+          "2": {
+            "get_star_ts": 1638564571
+          },
+          "1": {
+            "get_star_ts": 1638557835
+          }
+        },
+        "9": {
+          "1": {
+            "get_star_ts": 1639059352
+          }
+        },
+        "7": {
+          "2": {
+            "get_star_ts": 1638978196
+          },
+          "1": {
+            "get_star_ts": 1638977625
           }
         }
       },
-      "last_star_ts": 1638633429,
-      "name": "Lauren Meinhart",
-      "local_score": 34,
-      "stars": 8,
-      "id": "1648995"
+      "local_score": 97,
+      "global_score": 0
+    },
+    "1056653": {
+      "completion_day_level": {
+        "2": {
+          "1": {
+            "get_star_ts": 1638496697
+          },
+          "2": {
+            "get_star_ts": 1638497102
+          }
+        },
+        "4": {
+          "2": {
+            "get_star_ts": 1638642821
+          },
+          "1": {
+            "get_star_ts": 1638636648
+          }
+        },
+        "8": {
+          "1": {
+            "get_star_ts": 1638969102
+          },
+          "2": {
+            "get_star_ts": 1639012330
+          }
+        },
+        "5": {
+          "1": {
+            "get_star_ts": 1638714814
+          },
+          "2": {
+            "get_star_ts": 1638715128
+          }
+        },
+        "6": {
+          "2": {
+            "get_star_ts": 1638798623
+          },
+          "1": {
+            "get_star_ts": 1638795557
+          }
+        },
+        "3": {
+          "2": {
+            "get_star_ts": 1638564075
+          },
+          "1": {
+            "get_star_ts": 1638537655
+          }
+        },
+        "1": {
+          "2": {
+            "get_star_ts": 1638493611
+          },
+          "1": {
+            "get_star_ts": 1638488244
+          }
+        },
+        "7": {
+          "2": {
+            "get_star_ts": 1638887977
+          },
+          "1": {
+            "get_star_ts": 1638887025
+          }
+        },
+        "9": {
+          "1": {
+            "get_star_ts": 1639054611
+          },
+          "2": {
+            "get_star_ts": 1639061235
+          }
+        }
+      },
+      "local_score": 110,
+      "global_score": 0,
+      "last_star_ts": 1639061235,
+      "id": "1056653",
+      "name": "Thomas Aylesworth",
+      "stars": 18
     }
-  }
+  },
+  "event": "2021"
 }
