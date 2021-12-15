@@ -38,12 +38,11 @@ function getPointsPart2(char) {
 
 function part1() {
   const data = readInput('input.txt');
-  console.log(data)
   var sum = 0;
 
   data.forEach(line => {
     var characterStack = [];
-    characterStack.push(line[0]); //assume open thing
+    characterStack.push(line[0]); //Note: assuming open character
     for (var i = 1; i < line.length; i++ ) {
       if (isOpen(line[i])) {
         characterStack.push(line[i]);

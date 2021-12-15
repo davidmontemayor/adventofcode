@@ -7,7 +7,6 @@ function readInput(filename) {
   });
   const lines = input.split('\n');
 
-  console.log(lines)
   // Processing
   const connections = {};
   lines.map(line => line.split('-')).forEach(array => {
@@ -39,7 +38,7 @@ function part1() {
           visitedLocal.push(node);
         }
         if (node != 'end') {
-          findEnd(connections[node], visitedLocal, appendInNewArray(path, node));
+          findEnd(connections[node], visitedLocal, [...path, node]);
         } else {
           // found end!
           console.log(path.join(','), ',end')
@@ -74,7 +73,7 @@ function part2() {
           }
         }
         if (node != 'end') {
-          findEnd(connections[node], visitedLocal, extra, appendInNewArray(path, node));
+          findEnd(connections[node], visitedLocal, extra, [...path, node]);
         } else {
           // UGH i'm producing duplicates... just ignore them. 
           const stringVersion = path.join(',') + ',end';
@@ -97,12 +96,6 @@ function part2() {
   console.log(count, asString.length)
 }
 
-function appendInNewArray(array, item) {
-  const updatedArray = array.slice(0);
-  updatedArray.push(item)
-  return updatedArray;
-}
-
 function part2_correct() {
   const connections = readInput('input.txt');
   var count = 0;
@@ -111,17 +104,14 @@ function part2_correct() {
     nodesToVisit.forEach(node => {
       if (visited.indexOf(node) >= 0) {
         if (isLowercase(node) && node != 'start' && extraVisit) {
-          findEnd(connections[node], visited, false, appendInNewArray(path, node))
+          findEnd(connections[node], visited, false, [...path, node])
         } else {
           // skip
         }
       } else {
-        var visitedLocal = visited.slice(0);
-        if (isLowercase(node)) {
-          visitedLocal.push(node);
-        }
         if (node != 'end') {
-          findEnd(connections[node], visitedLocal, extraVisit, appendInNewArray(path, node));
+          var visitedCopy = isLowercase(node) ? [...visited, node] : [...visited];
+          findEnd(connections[node], visitedCopy, extraVisit, [...path, node]);
         } else {
           count++;
         }

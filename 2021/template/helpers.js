@@ -1,6 +1,7 @@
 // Other stuff we should remember:
 // Number.MAX_SAFE_INTEGER
 // Number.MAX_VALUE
+// Push and generate a new array [...path, node]
 
 function addCountToMap(map, key, num) {
   if (!map[key]) {
