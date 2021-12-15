@@ -42,8 +42,8 @@ function process() {
   Object.keys(daysData).forEach(day => {
     daysData[day].sort((a,b) => a.timestamp - b.timestamp)
     console.log ("December " + day + ", 2021\n");
-    var points1Left = 9; //TODO: automate
-    var points2Left = 9;
+    var points1Left = 11; //TODO: automate
+    var points2Left = 11;
     daysData[day].forEach(entry => {
       const worth = entry.star == 1 ? points1Left -- : points2Left--;
       userPoints[entry.name] = (userPoints[entry.name] || 0) + worth;
