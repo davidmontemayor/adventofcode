@@ -14,11 +14,12 @@ function readInput(filename) {
 /*
 const data = readInput('sample.txt');
 const data = readInput('input.txt');
-// Example:
+// Helpers example: 
 helpers.sortNumArray())
 */
 
 function part1() {
+
 }
 
 function part2() {
@@ -26,5 +27,3 @@ function part2() {
 }
 
 part1();
-
-
