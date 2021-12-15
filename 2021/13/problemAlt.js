@@ -8,11 +8,10 @@ function readInput(filename, x, y) {
   const lines = input.split('\n');
 
   // Processing
-  const map = Array(y).fill().map(() => Array(x).fill(0));
   const points = [];
   lines.filter(line => line.indexOf(',') >= 0).forEach(line => {
     const coords = line.split(',');
-    points.push({x: parseInt(coords[1]), y: parseInt(coords[0])}); 
+    points.push({x: parseInt(coords[0]), y: parseInt(coords[1])}); 
   });
 
   const folds = lines.filter(line => line.indexOf('=') >=0).map(instruction => {
@@ -23,64 +22,53 @@ function readInput(filename, x, y) {
   return { points, folds };
 }
 
-/*
-const data = readInput('sample.txt');
-const data = readInput('input.txt');
-// Example:
-helpers.sortNumArray())
-*/
-
-function foldMap(map, fold) {
-  for (var y = 0; y < map.length; y ++) {
-    for (var x = 0; x < map[y].length; x ++) { 
-      if (fold.axis == 'y' && fold.coordinate < y) {
-        if (map[y][x] == 1) {
-          map[y][x] = 0;
-          const newY = y - (y - fold.coordinate)*2;
-          map[newY][x] = 1;
-        }
-      } 
-      
-      if (fold.axis == 'x' && fold.coordinate < x) {
-        if (map[y][x] == 1) {
-          map[y][x] = 0;
-          const newX = x - (x - fold.coordinate)*2;
-          map[y][newX] = 1;
-        }
-      }
+function foldMap(points, fold) {
+  points.forEach(point => {
+    if (fold.axis == 'y' && fold.coordinate < point.y) {
+      const newY = point.y - (point.y - fold.coordinate)*2;
+      point.y = newY;
     }
-  }
-  console.log('======')
-  const count = map.reduce((prev, row) => prev += row.filter(x => x == 1).length, 0)
-  console.log(count)
-  // return newData;
+    if (fold.axis == 'x' && fold.coordinate < point.x) {
+      const newX = point.x - (point.x - fold.coordinate)*2;
+      point.x = newX;
+    }
+  })
 }
 function part1() {
-  // const data = readInput('sample.txt', 11, 15);
-  const data = readInput('input.txt', 1310, 894);
-  // helpers.printMatrix(data.map, '')
+  const data = readInput('input.txt');
   helpers.logObj(data.folds)
 
-  foldMap(data.map, data.folds[0]);
+  foldMap(data.points, data.folds[0]);
   
-  console.log('======')
-  // helpers.printMatrix(data.map, '')
-  const count = data.map.reduce((prev, row) => prev += row.filter(x => x == 1).length, 0)
-  console.log(count)
+  const mapOfPoints = {}; // hash them to see which ones are unique
+  data.points.forEach(point => {
+    mapOfPoints[point.x +',' + point.y] = true;
+  });
+  
+  console.log('Unique points left:', Object.keys(mapOfPoints).length)
 }
 
 function part2() {
-  const data = readInput('input.txt', 1310, 894);
-  // helpers.printMatrix(data.map, '')
-  helpers.logObj(data.folds)
+  const data = readInput('input.txt');
+  // helpers.logObj(data.folds)
 
   data.folds.forEach(fold => {
-    foldMap(data.map, fold)
+    foldMap(data.points, fold)
   })
 
-  data.map.slice(0,20).forEach(row =>
-    console.log(row.slice(0,50).join('').replaceAll('0', ' ').replaceAll('1','#'))
-  )
+  console.log('Unique:', countWithHash(data.points, (point) => point.x + ',' + point.y))
+  helpers.renderPoints(data.points, "#");
 }
 
+countWithHash = (array, hashingFunction) => {
+  const set = {}; // hash them to see which ones are unique  
+
+  array.forEach(item => {
+    set[hashingFunction(item)] = true;
+  });
+
+  return Object.keys(set).length;
+};
+
+part1();
 part2();

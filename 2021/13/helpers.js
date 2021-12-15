@@ -29,3 +29,19 @@ exports.printMatrix = (matrix, character) => {
 exports.logObj = (obj) => {
   console.log(JSON.stringify(obj))
 }
+
+exports.renderPoints = (points, character) => {
+  // Get canvas size
+  var maxX = 0;
+  var maxY = 0;
+  points.forEach(point => {
+    maxX = Math.max(maxX, point.x)
+    maxY = Math.max(maxY, point.y)
+  });
+
+  const output = Array(maxY+1).fill().map(() => Array(maxX+1).fill('.'));
+  points.forEach(point => {
+    output[point.y][point.x] = character;
+  });
+  exports.printMatrix(output, '');
+}
