@@ -2,7 +2,7 @@
 // Number.MAX_SAFE_INTEGER
 // Number.MAX_VALUE
 // Push and generate a new array [...path, node]
-
+// const map = Array(y).fill().map(() => Array(x).fill(0));
 function addCountToMap(map, key, num) {
   if (!map[key]) {
     map[key] = 0;
@@ -40,3 +40,29 @@ exports.printMatrix = (matrix, character) => {
 exports.logObj = (obj) => {
   console.log(JSON.stringify(obj))
 }
+
+exports.renderPoints = (points, character) => {
+  // Get canvas size
+  var maxX = 0;
+  var maxY = 0;
+  points.forEach(point => {
+    maxX = Math.max(maxX, point.x)
+    maxY = Math.max(maxY, point.y)
+  });
+
+  const output = Array(maxY+1).fill().map(() => Array(maxX+1).fill('.'));
+  data.points.forEach(point => {
+    output[point.y][point.x] = character;
+  });
+  helpers.printMatrix(output, '')
+}
+
+exports.countWithHash = (array, hashingFunction) => {
+  const set = {}; // hash them to see which ones are unique  
+
+  array.forEach(item => {
+    set[hashingFunction(item)] = true;
+  });
+
+  return Object.keys(set).length;
+};
