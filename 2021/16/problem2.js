@@ -24,68 +24,46 @@ function part2() {
 }
 
 function parsePacket(bits, maxCount) {
-  
   var currentIndex = 0;
   var mode = 'packetStart';
 
-  var lastVersion;
   var lastType;
-  var literalStr = '';
-  var literalValue;
-
+  
   const operations = ['+', '*', 'min', 'max', '?', '>', '<', '=']
   var results = [];
   var packetCount = 0;
 
   while (currentIndex < bits.length) {
-    if (packetCount == maxCount) {
-      return { currentIndex, results };
-    }
-
-    if (mode == 'packetStart') {
-      packetStartIndex = currentIndex;
-      lastVersion = parseInt(bits.substr(currentIndex, 3), 2);
-      currentIndex = currentIndex + 3;
-      mode = 'type'
-      continue;
-    }
-
-    if (mode == 'type') {
-      lastType = parseInt(bits.substr(currentIndex, 3), 2);
-      currentIndex = currentIndex + 3;
-      if (lastType == 4) {
-        mode = 'constant';
-        hasMore = true;
-      } else {
-        mode = 'operator'
-      }
-      continue;
+    currentIndex = currentIndex + 3;
+    lastType = parseInt(bits.substr(currentIndex, 3), 2);
+    currentIndex = currentIndex + 3;
+    if (lastType == 4) {
+      mode = 'constant';
+    } else {
+      mode = 'operator'
     }
 
     // TODO: how to decide how to ignore hex padding
-    // Does not matter
+    // Spoiler alert: it does not matter
     if (mode == 'constant') {
-      const type = bits[currentIndex];
-      literalStr += bits.substr(currentIndex + 1, 4);
-      currentIndex = currentIndex + 5;
+      var type;
+      var literalStr = '';
+      do  {
+        type = bits[currentIndex];
+        literalStr += bits.substr(currentIndex + 1, 4);
+        currentIndex = currentIndex + 5;
+      } while (type != 0);
       
-      if (type == '0') {
-        literalValue = parseInt(literalStr, 2);
+      literalValue = parseInt(literalStr, 2);
 
-        results.push(literalValue);
-        literalStr = '';
-        packetCount++;
-        mode = 'packetStart'
-      }
-      continue;
+      results.push(literalValue);
+      packetCount++;
     }
 
     if (mode == 'operator') {
       var operatorResult;
       const op = operations[lastType];
-      if (op == '>' || op == '<') {
-        console.log('hmmmm')
-      }
+      
       if (bits[currentIndex] == '0') {
         const operatorLength = parseInt(bits.substr(currentIndex + 1, 15), 2);
         currentIndex = currentIndex + 16;
@@ -103,10 +81,10 @@ function parsePacket(bits, maxCount) {
       console.log(op, operatorResult.results, '-->', theThing);
       results.push(theThing);
       packetCount++;
-        
-      if (maxCount != undefined && maxCount == packetCount || currentIndex > bits.length) {
-        return { currentIndex, results };
-      }
+    }
+    
+    if (maxCount != undefined && maxCount == packetCount || currentIndex > bits.length) {
+      return { currentIndex, results };
     }
   }
   return { currentIndex, results };
