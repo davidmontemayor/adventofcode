@@ -1,4 +1,11 @@
 const fs = require('fs');
+
+/*
+// Tom's Leaderboard
+curl 'https://adventofcode.com/2022/leaderboard/private/view/1056653.json' \
+  -H 'cookie: session=53616c7465645f5ff15c1f893171afe3c69ec05c6d8108f87041c68e87176f60d917772b18ca9ea8e78267cb743af7b59a65dd252c9ea4fa7ec862c4c261a96b' \
+  --compressed > leaderboard2022.json
+*/
 // const helpers = require('./helpers.js');
 
 function readInput(filename) {
@@ -9,10 +16,12 @@ function readInput(filename) {
 }
 
 function process() {
-  const data = readInput('leaderboard.json');
+  const data = readInput('leaderboard2022.json');
   // Show who did what in order
   var daysData = {};
-  Object.keys(data.members).forEach(key => {
+  const leaderboardMembers = Object.keys(data.members);
+  const maxPoints = leaderboardMembers.length;
+  leaderboardMembers.forEach(key => {
     const user = data.members[key];
     Object.keys(user.completion_day_level).forEach(day => {
       const dayInt = parseInt(day);
@@ -41,15 +50,15 @@ function process() {
   const userPoints = {};
   Object.keys(daysData).forEach(day => {
     daysData[day].sort((a,b) => a.timestamp - b.timestamp)
-    console.log ("December " + day + ", 2021\n");
-    var points1Left = 11; //TODO: automate
-    var points2Left = 11;
+    console.log ("December " + day + ", 2022\n");
+    var points1Left = maxPoints;
+    var points2Left = maxPoints;
     daysData[day].forEach(entry => {
       const worth = entry.star == 1 ? points1Left -- : points2Left--;
       userPoints[entry.name] = (userPoints[entry.name] || 0) + worth;
-      console.log(formatName(entry.name), entry.star, '\t', betterDate(new Date(entry.timestamp*1000)), 'Received: ', worth, 'Total: ', userPoints[entry.name]);
+      console.log(formatName(entry.name), 'P' + entry.star, padString('(+' + worth + ')', 6), padString('' + userPoints[entry.name], 2), ' ', 'Time:' + betterDate(new Date(entry.timestamp*1000)));
     })
-    console.log ("=========================================================================")
+    console.log ("==============================================================")
     console.log('')
   })
   console.log('TOTALS')
@@ -74,8 +83,12 @@ sortNumArray = (array) => {
 
 formatName = (nameInput) => {
   const name = nameInput || 'Sean V. Probs';
-  const pad = 20 - name.length;
-  const nameArray = Array.from(name);
+  return padString(nameInput, 20);
+}
+
+padString = (string, count) => {
+  const pad = count - string.length;
+  const nameArray = Array.from(string);
   nameArray.push(...new Array(pad).fill(' '));
   return nameArray.join('');
 }
