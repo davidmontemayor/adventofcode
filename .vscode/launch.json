@@ -12,7 +12,8 @@
       "<node_internals>/**"
       ],
       "program": "${file}",
-      "cwd": "${fileDirname}"
+      "cwd": "${fileDirname}",
+      "outputCapture": "std"
     }
   ]
 }
