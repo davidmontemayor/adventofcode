@@ -10,6 +10,18 @@ function addCountToMap(map, key, num) {
   map[key] = map[key] + num;
 }
 
+exports.intersection = (setA, setB) => {
+  return new Set([...setA].filter(x => setB.has(x)));
+}
+
+exports.difference = (setA, setB) => {
+  return new Set([...setA].filter(x => !setB.has(x)));
+}
+
+exports.union = (setA, setB) => {
+  return new Set([...setA, ...setB]);
+}
+
 // That feeling when you've forgotten your math and have to look it up
 exports.rotate = (cx, cy, x, y, angle) => {
   var radians = (Math.PI / 180) * angle,
