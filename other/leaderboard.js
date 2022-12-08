@@ -56,7 +56,7 @@ function process() {
     daysData[day].forEach(entry => {
       const worth = entry.star == 1 ? points1Left -- : points2Left--;
       userPoints[entry.name] = (userPoints[entry.name] || 0) + worth;
-      console.log(formatName(entry.name), 'P' + entry.star, padString('(+' + worth + ')', 6), padString('' + userPoints[entry.name], 2), ' ', 'Time:' + betterDate(new Date(entry.timestamp*1000)));
+      console.log(formatName(entry.name), 'P' + entry.star, padString('(+' + worth + ')', 6), padString('' + userPoints[entry.name], 3), ' ', 'Time:' + betterDate(new Date(entry.timestamp*1000)));
     })
     console.log ("==============================================================")
     console.log('')
