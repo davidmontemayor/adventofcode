@@ -8,8 +8,10 @@ function readInput(filename) {
   const lines = input.split('\n');
 
   // Do further processing
-  // return lines.map(line => line.split());
-  return lines;
+  // Conversion to integers is not strictly necessary lol
+  return lines.map(line => {
+    return line.split('').map(value => parseInt(value))
+  })
 }
 
 function part1() {
@@ -35,14 +37,18 @@ function checkTree(x, y, trees, width, height) {
   var maxRight = 0;
   var maxTop = 0;
   var maxBottom = 0;
-  for (var i = 0; i < width; i++) {
-    if (i < x) {
-      maxLeft = Math.max(maxLeft, trees[y][i]);
-    }
-    if (i > x) {
-      maxRight = Math.max(maxRight,trees[y][i]);
-    }
+  // slice end is not inclusive
+  const left = trees[y].slice(0, x)
+  const right = trees[y].slice(x + 1)
+  const visible = [];
+  if(left.findIndex(x => x >= myHeight) < 0) {
+    return true;
   }
+
+  if(right.findIndex(x => x >= myHeight) < 0) {
+    return true;
+  }
+
   for (var i = 0; i < height; i++) {
     if (i < y) {
       maxTop = Math.max(maxTop, trees[i][x]);
@@ -50,10 +56,8 @@ function checkTree(x, y, trees, width, height) {
     if (i > y) {
       maxBottom = Math.max(maxBottom, trees[i][x]);
     }
-    
   }
-  const lowestEdge = Math.min(Math.min(Math.min(maxTop, maxBottom), maxLeft), maxRight);
-  if (myHeight > lowestEdge) {
+  if (myHeight > maxTop || myHeight > maxBottom) {
     return true;
   }
   return false;
