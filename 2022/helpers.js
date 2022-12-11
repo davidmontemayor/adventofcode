@@ -22,6 +22,19 @@ exports.union = (setA, setB) => {
   return new Set([...setA, ...setB]);
 }
 
+exports.containsAll = (setA, setB) => {
+  const b = [...setB];
+  
+  // console.log('checking against', setA);
+  for (var i = 0; i < b.length; i++) {
+    // console.log(b[i], setA.has(b[i]))
+    if (!setA.has(b[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 // That feeling when you've forgotten your math and have to look it up
 exports.rotate = (cx, cy, x, y, angle) => {
   var radians = (Math.PI / 180) * angle,
@@ -70,7 +83,25 @@ exports.renderPoints = (points, character) => {
   data.points.forEach(point => {
     output[point.y][point.x] = character;
   });
-  helpers.printMatrix(output, '')
+}
+
+exports.renderPointsArray = (points, character) => {
+  // Get canvas size
+  var maxX = 0;
+  var maxY = 0;
+  points.forEach(point => {
+    maxX = Math.max(maxX, point[0] + 300)
+    maxY = Math.max(maxY, point[1] + 300)
+  });
+
+  const output = Array(maxY+1).fill().map(() => Array(maxX+1).fill('.'));
+  
+  points.forEach(point => {
+    // console.log(point[1], point[0])
+    output[point[1] + 150][point[0] + 150] = character;
+  });
+  output[150][150]=  's'
+  this.printMatrix(output, '')
 }
 
 exports.countWithHash = (array, hashingFunction) => {
