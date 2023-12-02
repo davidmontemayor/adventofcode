@@ -16,7 +16,7 @@ function readInput(filename) {
 }
 
 function process() {
-  const data = readInput('leaderboard2022.json');
+  const data = readInput('leaderboard2023.json');
   // Show who did what in order
   var daysData = {};
   const leaderboardMembers = Object.keys(data.members);
