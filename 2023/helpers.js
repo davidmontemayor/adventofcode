@@ -54,7 +54,7 @@ exports.sortNumArrayDesc = (array) => {
 };
 
 exports.arraySum = (array) => {
-  return array.reduce((prev, curr) => prev + curr);
+  return array.reduce((prev, curr) => prev + curr, 0);
 }
 // Matrix
 //const map = Array(1000).fill().map(() => Array(1000).fill(0));

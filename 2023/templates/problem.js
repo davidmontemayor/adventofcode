@@ -14,6 +14,9 @@ function readInput(filename) {
 
 function part1() {
   const data = readInput('sample.txt');
+  const array = [];
+
+  console.log(helpers.arraySum(array))
 }
 
 function part2() {
@@ -31,3 +34,7 @@ part1();
 // helpers.difference(setA, setB)
 // helpers.union(setA, setB)
 // console.log("=".repeat(80))
+
+function parseDecimal(s) {
+  return parseInt(s, 10);
+}
