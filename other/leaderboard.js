@@ -1,10 +1,11 @@
+const { exec } = require('child_process');
 const fs = require('fs');
 
 /*
 // Tom's Leaderboard
-curl 'https://adventofcode.com/2022/leaderboard/private/view/1056653.json' \
-  -H 'cookie: session=53616c7465645f5ff15c1f893171afe3c69ec05c6d8108f87041c68e87176f60d917772b18ca9ea8e78267cb743af7b59a65dd252c9ea4fa7ec862c4c261a96b' \
-  --compressed > leaderboard2022.json
+curl 'https://adventofcode.com/2023/leaderboard/private/view/1056653.json' \
+  -H 'cookie: session=53616c7465645f5f00a38a09eb05b9b9269622b3ed05b15903f0119aa32ad1d3de1c47ff5b2ce3476ab1aef365e12fec4895f3641582c4bc6fb46ab995484907' \
+  --compressed > leaderboard2023.json
 */
 // const helpers = require('./helpers.js');
 
@@ -16,7 +17,7 @@ function readInput(filename) {
 }
 
 function process() {
-  const data = readInput('leaderboard2023.json');
+  const data = readInput('leaderboard_latest.json');
   // Show who did what in order
   var daysData = {};
   const leaderboardMembers = Object.keys(data.members);
@@ -47,10 +48,11 @@ function process() {
   });
   // console.log(data);
 
+  // TODO: you can get the event from the data
   const userPoints = {};
   Object.keys(daysData).forEach(day => {
     daysData[day].sort((a,b) => a.timestamp - b.timestamp)
-    console.log ("December " + day + ", 2022\n");
+    console.log (`December ${day}, ${data.event}\n`);
     var points1Left = maxPoints;
     var points2Left = maxPoints;
     daysData[day].forEach(entry => {
@@ -93,5 +95,23 @@ padString = (string, count) => {
   return nameArray.join('');
 }
 
-// TODO: track points per day and print out a progression
-process();
+// TODO: read session key from file that is not checked in
+const session = "";
+const url = "https://adventofcode.com/2023/leaderboard/private/view/1056653.json";
+
+exec(`curl '${url}' \
+-H 'cookie: session=${session}' \
+--compressed > leaderboard_latest.json`, (err, stdout, stderr) => {
+  if (err) {
+    console.log('Could not execute CURL command.')
+    return;
+  }
+
+  // the *entire* stdout and stderr (buffered)
+  // console.log(`stdout: ${stdout}`);
+  // console.log(`stderr: ${stderr}`);
+
+  process();
+});
+
+// process();
