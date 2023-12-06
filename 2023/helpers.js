@@ -56,6 +56,10 @@ exports.sortNumArrayDesc = (array) => {
 exports.arraySum = (array) => {
   return array.reduce((prev, curr) => prev + curr, 0);
 }
+
+exports.arrayMultiply = (array) => {
+  return array.reduce((prev, curr) => prev * curr, 1);
+}
 // Matrix
 //const map = Array(1000).fill().map(() => Array(1000).fill(0));
 /*
@@ -126,4 +130,8 @@ exports.countWithHash = (array, hashingFunction) => {
 
 exports.reverseString = (string) => {
   return Array.from(string).reverse().join('');
+}
+
+exports.getTimeMs = () => {
+  return new Date();
 }
