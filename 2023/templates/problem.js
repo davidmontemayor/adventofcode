@@ -14,16 +14,37 @@ function readInput(filename) {
 
 function part1() {
   const data = readInput('sample.txt');
+  
   const array = [];
 
   console.log(helpers.arraySum(array))
 }
 
 function part2() {
-  
+  const tst0 = helpers.getTimeMs();
 }
 
+// OUTPUT 
+// Answer: 
+console.log('==============================')
+var tst0 = helpers.getTimeMs();
 part1();
+console.log('\nPart 1 time: ', helpers.getTimeMs() - tst0, 'ms\n')
+
+// Answer: 
+console.log('==============================')
+tst0 = helpers.getTimeMs();
+part2();
+console.log('\nPart 2 time: ', helpers.getTimeMs() - tst0, 'ms\n')
+
+// HANDY UTILS
+
+function parseDecimal(s) {
+  return parseInt(s, 10);
+}
+
+
+// REMINDERS
 
 // const data = readInput('sample.txt');
 // Helpers example: 
@@ -34,7 +55,3 @@ part1();
 // helpers.difference(setA, setB)
 // helpers.union(setA, setB)
 // console.log("=".repeat(80))
-
-function parseDecimal(s) {
-  return parseInt(s, 10);
-}

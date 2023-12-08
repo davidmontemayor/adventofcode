@@ -60,6 +60,18 @@ exports.arraySum = (array) => {
 exports.arrayMultiply = (array) => {
   return array.reduce((prev, curr) => prev * curr, 1);
 }
+
+exports.arrayLcm = (array) => {
+  return array.reduce(exports.lcm)
+}
+
+exports.gcd = (a, b) => {
+  return a ? exports.gcd(b % a, a) : b;
+}
+
+exports.lcm = (a, b) => {
+  return a * b / exports.gcd(a, b);
+}
 // Matrix
 //const map = Array(1000).fill().map(() => Array(1000).fill(0));
 /*
