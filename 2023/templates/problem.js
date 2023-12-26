@@ -21,7 +21,7 @@ function part1() {
 }
 
 function part2() {
-  const tst0 = helpers.getTimeMs();
+  
 }
 
 // OUTPUT 
